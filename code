@@ -1,0 +1,30 @@
+### **Example Usage in Code**
+
+```systemverilog
+module data_type_demo;
+    typedef enum logic [1:0] { RED, GREEN, BLUE } color_t;
+    typedef struct {
+        bit [7:0] id;
+        logic [15:0] data;
+    } packet_t;
+
+    logic clk;
+    bit flag;
+    color_t current_color;
+    packet_t pkt;
+
+    initial begin
+        pkt.id = 8'hA5;
+        pkt.data = 16'hDEAD;
+        current_color = GREEN;
+        $display("Packet ID: %h, Data: %h, Color: %s", pkt.id, pkt.data, current_color.name());
+    end
+endmodule
+```
+
+---
+
+### **Simulation Output**
+```
+Packet ID: a5, Data: dead, Color: GREEN
+  
